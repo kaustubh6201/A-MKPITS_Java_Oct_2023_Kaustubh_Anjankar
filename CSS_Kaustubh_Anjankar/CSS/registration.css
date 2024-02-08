@@ -1,0 +1,14 @@
+
+label{
+    font-weight: 900;
+}
+h1{
+    color: goldenrod;
+}
+
+legend{
+    font-weight:bolder;
+}
+input{
+    color: rgb(137, 31, 31);
+}
