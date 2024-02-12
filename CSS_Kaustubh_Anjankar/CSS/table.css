@@ -1,0 +1,42 @@
+table,td,th{
+    border: solid 2px;
+    padding: 5px;
+    border-collapse: separate;
+    /* border-collapse:  collapse; */
+    /* border spacin only used when border has been seperated */
+    border-spacing:10px 15px;
+    border-color: rgb(29, 122, 122);
+    border-width: 4px;
+    /* caption-side: bottom;it is used in only in head tag in html */
+
+    text-shadow: 1px 1px 3px;
+   
+}
+
+table{
+    /* empty-cells: hide ; */
+    /* only used in table tag */
+    /* padding-left: 50px; */
+    /* width: 4px; */
+    /* background-color: rgb (210, 20, 10 ,) ; */
+    /* background-color: red; */
+ 
+    background-color: rgba(236,150,19,0.3);
+}
+
+th,td{
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+    
+    /* padding-top: 30px; */
+    /* height: 50px; */
+}
+
+th{
+    /* height: 150px; */
+    background-color: rgb(220, 89, 89);
+
+}
+tr{
+    background-color: greenyellow;
+}

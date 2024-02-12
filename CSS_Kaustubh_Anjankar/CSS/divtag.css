@@ -1,0 +1,26 @@
+.container{
+    text-align: end;
+    background-color: rgb(2, 2, 2);
+   
+    border: solid rgb(152, 212, 20);
+    
+    
+    
+}
+.container > div {
+   
+    color: aqua;
+    width: 100px;
+    padding: 7px;
+    padding-right: 50px;
+    display: inline-block;
+
+    /* text-align: center; */
+
+    
+}
+h1:hover{
+    
+    font-style: italic;
+    text-shadow: 2px 2px 1px rgb(27, 119, 212);
+}
