@@ -1,26 +1,45 @@
 .container{
     text-align: end;
-    background-color: rgb(2, 2, 2);
+    /* background-color: rgb(2, 2, 2); */
    
-    border: solid rgb(152, 212, 20);
+    border: solid rgb(7, 7, 7);
     
     
     
 }
 .container > div {
    
-    color: aqua;
+    color:black;
+    
     width: 100px;
     padding: 7px;
     padding-right: 50px;
     display: inline-block;
-
+    height: 25px;
+    padding-top: 15px;
     /* text-align: center; */
+    
 
     
 }
+h1{
+    text-align: center;
+}
 h1:hover{
-    
+    font-size: 40px;
     font-style: italic;
-    text-shadow: 2px 2px 1px rgb(27, 119, 212);
+    text-shadow: 2px 4px 1px rgb(27, 119, 212);
+    text-align: center;
+}
+
+body{
+   background-image: url(/Images/dog.jpg);
+
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.container>:hover{
+    text-shadow: 2px 2px 1px yellow;
+
 }
