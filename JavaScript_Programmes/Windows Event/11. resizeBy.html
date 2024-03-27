@@ -9,8 +9,6 @@
 	<h1>Resizing Window</h1>
 	<button type="button" id="openbtn">OpenWindow</button>
 	<button type="button" id="resizebtn">ResizeWindow</button>
-
-
 	<script>
 		var newWindow;
 		function openWin() {
@@ -18,12 +16,14 @@
 			newWindow.document.write("New Window Hoon Main");
 		}
 		function resizeWin() {
-			newWindow.resizeBy(200, 200);
+			newWindow.resizeBy(200, 100);
 			newWindow.focus();
 		}
 		document.getElementById("openbtn").addEventListener("click", openWin);
 		document.getElementById("resizebtn").addEventListener("click", resizeWin);
 	</script>
 </body>
+
++
 
 </html>
