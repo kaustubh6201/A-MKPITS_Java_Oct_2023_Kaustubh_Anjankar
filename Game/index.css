@@ -11,7 +11,16 @@
   text-align: center;
   padding: 10px;
 }
-
+/* body{
+  margin-left: 34%; margin-top: 3%;
+  font-size: x-large;
+}
+#name{
+  font-size: large;
+}
+#start{
+  font-size: large;
+} */
 .selected {
   background-color: green;
 }
