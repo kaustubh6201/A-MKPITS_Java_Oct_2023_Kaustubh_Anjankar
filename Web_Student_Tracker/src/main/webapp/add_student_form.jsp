@@ -30,5 +30,5 @@
 	</tbody></table></form>
 	<div style="clear:both;"></div>
 	<p><a href="StudentControllerServletNew">Back To List</a></p>
-</body>
+</body> 
 </html>

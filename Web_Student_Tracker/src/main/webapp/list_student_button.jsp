@@ -23,10 +23,10 @@ List<Student_model> theStudent = (List<Student_model>) request.getAttribute("STU
 	<div id="container">
 		<div id="content">
 		<input type="button" value="Add Student" onclick="window.location.href='add_student_form.jsp'; return false;"
-		 class="add_student_button">
-			<table border="1">
+		 class="add_student_button"> <br><br>
+			<table border ="1">
 				<tr>
-
+                    <th>ID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
@@ -35,14 +35,13 @@ List<Student_model> theStudent = (List<Student_model>) request.getAttribute("STU
 
 				<c:forEach var="tempStudent" items="${STUDENT_LIST}">
 					<tr>
+					    <td>${tempStudent.id}</td>
 						<td>${tempStudent.firstName}</td>
 						<td>${tempStudent.lastName}</td>
 						<td>${tempStudent.email}</td>
 
 					</tr>
-
-
-				</c:forEach>
+                </c:forEach>
 
 			</table>
 		</div>

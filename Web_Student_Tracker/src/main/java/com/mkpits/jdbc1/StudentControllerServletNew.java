@@ -41,12 +41,49 @@ public class StudentControllerServletNew extends HttpServlet {
 			throws ServletException, IOException {
 		
 		try {
+			String theCommand = request.getParameter("command");
+			
+			if(theCommand==null) {
+				theCommand="LIST";
+			}
+			
+			switch (theCommand) {
+			case "LIST":listStudents(request, response);
+				
+				break;
+				case "ADD":
+					addstudent(request,response);
+					break;
+
+			default:
+				listStudents(request, response);		
+			}
+			
 			listStudents(request,response);
 		} catch (Exception e) {
 			throw new ServletException();
 			
 		}
 	   
+		
+	}
+
+	private void addstudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//read student data form
+		
+		String firstName=request.getParameter("firstName");
+		String lastName=request.getParameter("lastName");
+		String email=request.getParameter("email");
+		
+		//create new Student_Model object
+		
+		Student_model theStudent=new Student_model(firstName, lastName, email);
+		//add student to the database
+		studentDbUtil.addStudent(theStudent);
+		
+		//send back to the main page(the Student list)
+		listStudents(request, response);
+		
 		
 	}
 

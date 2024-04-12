@@ -1,6 +1,7 @@
 package com.mkpits.jdbc1;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class StudentDbUtility {
 			myConn = datasource.getConnection();
 			
 			//create a sql statment 
-			String sql = "select * from student order by last_name";
+			String sql = "select * from student order by id";
 			mystmt = myConn.createStatement();
 			
 			//execute sql query 
@@ -81,6 +82,33 @@ public class StudentDbUtility {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+	}
+
+	public void addStudent(Student_model theStudent) {
+		
+		Connection myConn=null;
+		PreparedStatement myStmt=null;
+		try {
+			//get db connection
+			myConn=datasource.getConnection();
+			//create sql for insert
+			String sql="insert into student(first_name,last_name,email)values(?,?,?)";
+					myStmt=myConn.prepareStatement(sql);
+			//set the parameter value
+			myStmt.setString(1,theStudent.getFirstName());
+			myStmt.setString(2,theStudent.getLastName());
+			myStmt.setString(3,theStudent.getEmail());
+			
+			//execute sql insert
+			myStmt.execute();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}finally {
+			close(myConn, myStmt,null);
 		}
 		
 	}
