@@ -9,6 +9,17 @@ public class Books_Model {
 	private String genres;
 	private String characters;
 	private String synopsis;
+	public Books_Model(String title, String author, String date, String genres, String characters, String synopsis) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.date = date;
+		this.genres = genres;
+		this.characters = characters;
+		this.synopsis = synopsis;
+	}
+
+	
 	
 	public Books_Model(int id, String title, String author, String date, String genres, String characters,
 			String synopsis) {
