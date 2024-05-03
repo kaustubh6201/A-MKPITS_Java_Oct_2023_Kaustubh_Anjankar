@@ -133,7 +133,7 @@ public class BooksDb {
 			connection = dataSource.getConnection();
 
 			// create sql to get selected student
-			String sql = "select * from student where id = ?";
+			String sql = "select * from books where id = ?";
 
 			// create a prepared statement
 			statement = connection.prepareStatement(sql);
@@ -155,7 +155,7 @@ public class BooksDb {
 				
 
 				// use the studentid during construction
-				thebooks = new Books_Model(booksid, sql, sql, sql, sql, thebook, sql);
+				thebooks = new Books_Model(booksid, title, author, date, genres, characters, synopsis);
 			} else {
 				throw new Exception("Could not find booksid " + booksid);
 			}
@@ -180,7 +180,7 @@ public class BooksDb {
 			connection = dataSource.getConnection();
 
 			// create sql to get update student
-			String sql = "update student set first_name = ?,last_name = ?,email = ? where id = ?";
+			String sql = "update books set title = ?,author = ?,date = ?,genres = ?,characters = ?,synopsis = ? where id = ?";
 
 			// create a prepared statement
 			statement = connection.prepareStatement(sql);
@@ -234,6 +234,47 @@ public class BooksDb {
 		}
 		
 		
+	}
+
+	public  List<Books_Model> getBooks(int start, int total) {
+List<Books_Model> books = new ArrayList<Books_Model>();
+		
+		Connection connection = null;
+		Statement statement = null ;
+		ResultSet result = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String sql = "select * from books limit "+(start-1)+","+total;
+			statement = connection.createStatement();
+			result = statement.executeQuery(sql);
+			
+			while (result.next())
+			{
+				int id = result.getInt("id");
+				String title = result.getString("title");
+				String author = result.getString("author");
+				String date = result.getString("date");
+				String genres = result.getString("genres");
+				String characters = result.getString("characters");
+				String synopsis = result.getString("synopsis");
+				//System.out.println(id);
+				
+			 
+				Books_Model tempbook = new Books_Model(id,title,author,date,genres,characters,synopsis);
+				 
+				books.add(tempbook);
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(connection, statement,result);
+			
+		}
+		return books;
 	}
 
 

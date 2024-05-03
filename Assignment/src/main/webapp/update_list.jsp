@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="CSS/update-book-style.css">
 </head>
 <body>
     
@@ -15,11 +16,11 @@
 	</div>
 	<div id="container">
 
-		<h3>Add Books Details</h3>
+		<h3>Update Books</h3>
 
 		<form action="BooksListController" method="get">
 			<input type="hidden" name="command" value="UPDATE" /> <input
-				type="hidden" name="bookId" value="${THE_BOOKS.id}" />
+				type="hidden" name="booksid" value="${THE_BOOKS.id}" />
 			<table>
 				<tbody>
 					<tr>

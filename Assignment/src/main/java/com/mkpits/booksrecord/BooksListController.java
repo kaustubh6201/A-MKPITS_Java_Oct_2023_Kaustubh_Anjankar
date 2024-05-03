@@ -50,6 +50,9 @@ public class BooksListController extends HttpServlet {
 		case "LIST":bookslist(request, response);
 			
 			break;
+		case "RECORDS":
+			listRecords(request,response);
+			break;
 			case "ADD":
 				addbooks(request,response);
 				break;
@@ -65,7 +68,9 @@ public class BooksListController extends HttpServlet {
 				break;
 		default:
 			bookslist(request, response);
+			break;
 		}
+		bookslist(request, response);
 		}
 		catch (Exception e) {
 			throw new ServletException(e);
@@ -73,6 +78,24 @@ public class BooksListController extends HttpServlet {
 			
 		}
 	
+
+	private void listRecords(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String spageid = request.getParameter("page");
+		int pageid = Integer.parseInt(spageid);
+		int total = 100;
+		if (pageid == 1) {
+		} else {
+			pageid = pageid - 1;
+			pageid = pageid * total + 1;
+		}
+		List<Books_Model> books = booksdb.getBooks(pageid, total);
+		// add student to the request
+		request.setAttribute("BOOKS_LIST", books);
+		// send to JSP page view
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/books_list.jsp");
+		dispatcher.forward(request, response);
+
+	}
 
 	private void deletebooks(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// read student id from form data
@@ -118,10 +141,10 @@ public class BooksListController extends HttpServlet {
 		Books_Model thebooks =booksdb.loadbooks(thebook);
 
 		// place student in the request attribute
-		request.setAttribute("THE_STUDENT", thebooks);
+		request.setAttribute("THE_BOOKS", thebooks);
 
 		// send to JSP page view
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/bookslist.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/update_list.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -155,7 +178,7 @@ public class BooksListController extends HttpServlet {
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/books_list.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request,response);
 		
 		
 	}
