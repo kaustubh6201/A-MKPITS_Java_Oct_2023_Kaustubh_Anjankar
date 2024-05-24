@@ -6,8 +6,8 @@ public class MultiThreadApplication {
 		
 		MultiThread mt1 = new MultiThread();
 		mt1.start();
-		MultiThread2 mt2 = new MultiThread2();
-		mt2.start();
+		//MultiThread2 mt2 = new MultiThread2();
+		//mt2.start();
 		
 	}
 }
